@@ -1,0 +1,348 @@
+:root {
+  --cgkp-bg: #ffffff;
+  --cgkp-text: #17201b;
+  --cgkp-muted: #66746d;
+  --cgkp-line: #dbe3de;
+  --cgkp-soft: #eef5f1;
+  --cgkp-accent: #157a5f;
+  --cgkp-accent-strong: #0f5d48;
+  --cgkp-danger: #a83d3d;
+  --cgkp-shadow: 0 18px 48px rgba(10, 24, 18, 0.18);
+}
+
+#cgkp-toggle,
+#cgkp-root {
+  color: var(--cgkp-text);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 14px;
+  letter-spacing: 0;
+  box-sizing: border-box;
+  z-index: 2147483646;
+}
+
+#cgkp-toggle {
+  position: fixed;
+  right: 18px;
+  top: 88px;
+  display: none;
+  min-width: 72px;
+  height: 34px;
+  border: 1px solid var(--cgkp-line);
+  border-radius: 8px;
+  background: var(--cgkp-bg);
+  box-shadow: var(--cgkp-shadow);
+  cursor: pointer;
+}
+
+#cgkp-toggle.cgkp-open {
+  background: var(--cgkp-accent);
+  border-color: var(--cgkp-accent);
+  color: #ffffff;
+}
+
+#cgkp-root {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: min(380px, calc(100vw - 28px));
+  height: 100vh;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-left: 1px solid var(--cgkp-line);
+  border-radius: 0;
+  background: var(--cgkp-bg);
+  box-shadow: -18px 0 42px rgba(10, 24, 18, 0.16);
+}
+
+#cgkp-root.cgkp-hidden {
+  display: none;
+}
+
+#cgkp-root *,
+#cgkp-toggle {
+  box-sizing: border-box;
+}
+
+.cgkp-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 16px 14px;
+  border-bottom: 1px solid var(--cgkp-line);
+}
+
+.cgkp-title {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.cgkp-subtitle {
+  max-width: 260px;
+  margin-top: 4px;
+  color: var(--cgkp-muted);
+  font-size: 12px;
+  line-height: 1.35;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cgkp-icon-button,
+.cgkp-delete {
+  width: 28px;
+  height: 28px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--cgkp-muted);
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.cgkp-icon-button:hover,
+.cgkp-delete:hover {
+  background: #f5eaea;
+  color: var(--cgkp-danger);
+}
+
+.cgkp-actions {
+  display: grid;
+  gap: 8px;
+  padding: 12px 14px 8px;
+}
+
+.cgkp-primary {
+  width: 100%;
+  height: 36px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--cgkp-accent);
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.cgkp-primary:hover {
+  background: var(--cgkp-accent-strong);
+}
+
+.cgkp-primary.cgkp-pick-active {
+  background: #b84d2f;
+}
+
+.cgkp-primary.cgkp-pick-active:hover {
+  background: #973d25;
+}
+
+.cgkp-secondary {
+  width: 100%;
+  height: 34px;
+  border: 1px solid var(--cgkp-line);
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--cgkp-accent-strong);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.cgkp-secondary:hover {
+  background: var(--cgkp-soft);
+  border-color: #b8d8ca;
+}
+
+.cgkp-secondary:disabled {
+  background: #f5f7f6;
+  border-color: var(--cgkp-line);
+  color: #a5afa9;
+  cursor: not-allowed;
+}
+
+html.cgkp-picking main article,
+html.cgkp-picking [data-message-author-role] {
+  cursor: crosshair;
+}
+
+html.cgkp-picking main article:hover,
+html.cgkp-picking [data-message-author-role]:hover {
+  outline: 2px solid rgba(184, 77, 47, 0.42);
+  outline-offset: 4px;
+}
+
+.cgkp-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 6px;
+  padding: 0 14px 12px;
+}
+
+.cgkp-tabs button {
+  height: 32px;
+  border: 1px solid var(--cgkp-line);
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--cgkp-muted);
+  cursor: pointer;
+  font-weight: 650;
+}
+
+.cgkp-tabs button.cgkp-active {
+  background: var(--cgkp-soft);
+  border-color: #b8d8ca;
+  color: var(--cgkp-accent-strong);
+}
+
+.cgkp-list {
+  min-height: 80px;
+  overflow: auto;
+  padding: 0 10px 12px;
+}
+
+.cgkp-empty {
+  padding: 20px 12px;
+  color: var(--cgkp-muted);
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.cgkp-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px;
+  margin: 0 0 8px;
+  border: 1px solid var(--cgkp-line);
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.cgkp-item-main {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+
+.cgkp-item-main {
+  min-width: 0;
+  padding: 11px 8px 11px 10px;
+}
+
+.cgkp-item-title {
+  display: block;
+  color: var(--cgkp-text);
+  font-size: 13px;
+  font-weight: 750;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.cgkp-item-preview {
+  display: -webkit-box;
+  margin-top: 4px;
+  color: var(--cgkp-muted);
+  font-size: 12px;
+  line-height: 1.4;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.cgkp-item-tools {
+  display: flex;
+  align-items: flex-start;
+  gap: 2px;
+  padding: 6px 4px 0 0;
+}
+
+.cgkp-tool,
+.cgkp-delete {
+  width: 28px;
+  height: 28px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--cgkp-muted);
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.cgkp-tool:hover {
+  background: #fff6db;
+  color: #966400;
+}
+
+.cgkp-tool.cgkp-favorited {
+  color: #c48500;
+}
+
+.cgkp-delete:hover {
+  background: #f5eaea;
+  color: var(--cgkp-danger);
+}
+
+.cgkp-item:hover {
+  border-color: #a8cdbd;
+  background: #fbfdfc;
+}
+
+.cgkp-user {
+  border-left: 3px solid #2f7df6;
+}
+
+.cgkp-assistant {
+  border-left: 3px solid var(--cgkp-accent);
+}
+
+.cgkp-mark {
+  border-left: 3px solid #c48500;
+}
+
+[data-cgkp-mark-id] {
+  position: relative;
+}
+
+[data-cgkp-mark-id]::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 10px;
+  width: 4px;
+  height: calc(100% - 20px);
+  min-height: 28px;
+  border-radius: 999px;
+  background: var(--cgkp-accent);
+}
+
+.cgkp-pulse {
+  animation: cgkp-pulse 1.3s ease-out;
+}
+
+@keyframes cgkp-pulse {
+  0% {
+    outline: 3px solid rgba(21, 122, 95, 0.45);
+    outline-offset: 6px;
+  }
+  100% {
+    outline: 0 solid rgba(21, 122, 95, 0);
+    outline-offset: 14px;
+  }
+}
+
+@media (max-width: 720px) {
+  #cgkp-root {
+    right: 0;
+    left: 0;
+    top: 0;
+    width: auto;
+    max-height: 100vh;
+  }
+}
